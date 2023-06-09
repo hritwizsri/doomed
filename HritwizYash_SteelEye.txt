@@ -1,0 +1,264 @@
+import datetime as dt
+from typing import Optional
+from pydantic import BaseModel, Field
+from flask import flask, request, jsonify
+from rest_framework import viewsets
+from django .contrib import admin
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .model import trades
+from .serializers import tradeSerializer
+from .viewa import tradeViewSet
+
+app = FastAPI()
+
+def_trade_by_id():
+      return max(trade.trade_id for trade in trades)+1
+
+
+class Trades(BaseModel):
+     trade_id:int = field(default_factory=trade_by_id,alias="id")
+     
+     purchase_type:str
+     trade_price:int
+     trade_quantity:int
+     instrument_id:str
+     asset_class:str
+     order_submitted:var
+     counterparty:var
+     date_source:str
+
+@app.list():
+async def get_tradeViewSet():
+return tradeViewSet
+
+
+@app.get("/trades/<purchase_type>")
+async def get_trades():
+return trades
+
+@app.get("/trades/<trade_price>")
+async def get_trades():
+return trades
+
+@app.get("/trades/<trade_quantity>")
+async def get_trades():
+return trades
+
+@app.get("/trades/<instrument_id>")
+async def get_trades():
+return trades
+
+@app.get("/trades/<asset_class>")
+async def get_trades():
+return trades
+
+@app.get("/trades/<order_submitted>")
+async def get_trades():
+return trades
+
+@app.get("/trades/<counterparty>")
+async def get_trades():
+return trades
+
+@app.get("/trades/<date_source>")
+async def get_trades():
+return trades
+
+
+
+
+class TradeDetails(BaseModel)
+      buySellIndicator: str = Field(description="A value of BUY for buys, SELL for sells.")
+
+      price: float = Field(description="The price of the Trade.")
+
+      quantity: int = Field(description="The amount of units traded.")
+
+
+class Trade(BaseModel):
+      asset_class: Optional[str] = Field(alias="assetClass", default=None, description="The asset class of the instrument traded. E.g. Bond, Equity, FX...etc")
+
+      counterparty: Optional[str] = Field(default=None, description="The counterparty the trade was executed with. May not always be available")
+
+      instrument_id: str = Field(alias="instrumentId", description="The ISIN/ID of the instrument traded. E.g. TSLA, AAPL, AMZN...etc")
+
+      instrument_name: str = Field(alias="instrumentName", description="The name of the instrument traded.")
+
+      trade_date_time: dt.datetime = Field(alias="tradeDateTime", description="The date-time the Trade was executed")
+
+      trade_details: TradeDetails = Field(alias="tradeDetails", description="The details of the trade, i.e. price, quantity")
+
+      trade_id: str = Field(alias="tradeId", default=None, description="The unique ID of the trade")
+
+      trader: str = Field(description="The name of the Trader")
+
+def_Trade():
+      return max(trade.asset_class for tarde in trades)+1
+
+def_Trade():
+      return max(trade.counterparty for tarde in trades)+1
+
+def_Trade():
+      return max(trade.instrument_id for tarde in trades)+1
+
+def_Trade():
+      return max(trade.instrument_name for tarde in trades)+1
+
+def_Trade():
+      return max(trade.trade_date_time for tarde in trades)+1
+
+def_Trade():
+      return max(trade.tarde_details for trade in trades)+1
+
+def_Trade():
+      return max(trade.trade_id for tarde in trades)+1
+
+def_Trade():
+      return max(trade.trader for tarde in trades)+1
+
+
+
+@app.get("/trades/trade/<asset_class>")
+async def get_trade():
+return trade
+
+@app.get("/trades/trade/<counterparty>")
+async def get_trade():
+return trade
+
+@app.get("/trades/trade/<Instrument_id>")
+async def get_trade():
+return trade
+
+@app.get("/trades/trade/<instrument_name>")
+async def get_trade():
+return trade
+
+@app.get("/trades/trade/<trade_date_time>")
+async def get_trade():
+return trade
+
+@app.get("/trades/trade/<trade_details>")
+async def get_trade():
+return trade
+
+@app.get("/trades/trade/<trade_id>")
+async def get_trade():
+return trade
+
+@app.get("/trades/trade/<trader>")
+async def get_trade():
+return trade
+
+
+class SerachingTrade(BaseModel):
+      counterparty:str = field(default_factory=counterparty,alias="counterparty")
+      instrumentId:str = field(default_factory=instrumentId,alias="instrumentId")
+      instrumentName:str = field(default_factory=instrumentName,alias="instrumentName")
+      trader:str = field(default_factory=trader,alias="traders")
+
+def_counterparty():
+      return max(searchingtrade.counterparty for searchingtrade in trades)+1
+
+def_instrument_Id():
+      return max(searchingtrade.instrumentId for searchingtrade in trades)+1
+
+def_instrument_Name():
+      return max(searchingtrade.InstrumentName for searchingtrade in trades)+1
+
+def_trader():
+      return max(searchingtrade.trader for searchingtrade in trades)+1
+
+
+@app.get("/trades/searchingtrade/<counterparty>")
+async def get_searchingtrade():
+return searchingtrade
+
+@app.get("/trades/searchingtrade/<instrument_Id>")
+async def get_searchingtrade():
+return searchingtrade
+
+@app.get("/trades/searchingtrade/<instrument_Name>")
+async def get_searchingtrade():
+return searchingtrade
+
+@app.get("/trades/searchingtrade/<trader>")
+async def get_searchingtrade():
+return searchingtrade
+
+
+
+class TradeViewSet(viewsets.ModelViewSet):
+      serializer_class = tradeSerializer
+      queryset = trade.object.all()
+
+      assetclass:int = field(default_factory=assetclass,alias="assetclass")
+      tradedatetime_end:int = field(default_factory=tradedatetime,alias="tradedatetime")
+      tradedatetime_start:int = field(default_factory=tradedatetime,alias="tradedatetime")
+      tradedetails_price_max:int = field(default_factory=tradedetails.price,alias="tradedetails.price")
+      tradedetails_price_min:int = field(default_factory=tradedetails.price,alias="tradedetails.price")
+
+
+
+def_TradeViewSet():
+      return max(viewset.view_id for viewset in trades)+1
+
+
+def_ViewSet():
+      return max(viewset.assetclass for viewset in trades)+1
+
+def_tradedatetime_end():
+      tradedatetime_end = datetime.datetime.end()
+      return max(viewset.tradedatetime_end for viewset in trades)+1
+
+def_tradedatetime_start():
+      tradedatetime_start = datetime.datetime_start()
+      return max(viewset.tradedatetime_start for viewset in trades)+1
+
+def_tradedetails_price_max():
+      tradedetails_price_max = (minPrice=2&maxPrice=10 , 2 <= tradeDetails.price <= 10)
+      return max(viewset.tradedetails_price_max for viewset in trades)+1
+
+def_tradedetails_price_min():
+      tradedetails_price_min = (minPrice=2&maxPrice=10 , 2 <= tradeDetails.price <= 10)
+      return max(viewset.tradedetails_price_min for viewset in trades)+1
+
+
+@app.retrieve():
+async def get_tradeViewSet():
+return tradeViewSet
+
+
+@app.get("/trade/treadeViewSet/<viewset>")
+async def get_tradeViewSet():
+return tradeViewSet
+
+@app.get("/trades/treadeViewSet/tradedatetime/<tradedtaetime_end>")
+async def get_tradeViewSet():
+return tradeViewSet
+
+@app.get("/trades/treadeViewSet/tradedatetime/<tradedatetime_start>")
+async def get_tradeViewSet():
+return tradeViewSet
+
+@app.get("/trade/treadeViewSet/tradedetails/tradedetails_price/<tradedetails_price_max")
+async def get_tradeViewSet():
+return tradeViewSet
+
+@app.get("/trade/treadeViewSet/tradedetails/tradedetails_price/tradedetails_price_min")
+async def get_tradeViewSet():
+return tradeViewSet
+
+
+
+urlpatterns = [
+      path("admin/",admin.site.urls),
+      path("",include("trades.urls")),
+      path("",includce(router.urls))
+ ]
+
+
+response = request.get(api_url)
+response.json()
+response.status_200
